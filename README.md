@@ -1,5 +1,10 @@
 # 🏠 HomeVision
 
+![Stars](https://img.shields.io/github/stars/BhavsarAesha/MERN-Project?style=social)
+![Issues](https://img.shields.io/github/issues/BhavsarAesha/MERN-Project)
+![License: MIT](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
 **HomeVision** is an innovative web-based platform built with the **MERN stack** (MongoDB, Express.js, React.js, Node.js) to transform the home buying experience. It allows users to explore properties, book visits, download brochures, and directly contact sellers — all through an intuitive, user-friendly interface.
 
 ---
