@@ -40,7 +40,7 @@ router.post('/signup', async (req, res) => {
 // Login route
 router.post('/login', async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, p } = req.body;
     // console.log('Received email:', email);
     // console.log('Received password:', password);
 

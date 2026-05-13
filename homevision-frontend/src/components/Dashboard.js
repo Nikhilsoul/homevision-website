@@ -204,7 +204,7 @@ const Dashboard = () => {
             </div>
             <button type="submit" className="btn">Send Message</button>
           </form>
-          <p>Email: info@homevision.com | Phone: (+91) 97236 18239</p>
+          <p>Email: info@homevision.com | Phone: (+91) 7481986785</p>
           <p>&copy; 2024 Home Vision. All rights reserved.</p>
         </div>
       </footer>

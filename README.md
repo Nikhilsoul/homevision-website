@@ -1,9 +1,6 @@
 # 🏠 HomeVision
 
-![Stars](https://img.shields.io/github/stars/BhavsarAesha/MERN-Project?style=social)
-![Issues](https://img.shields.io/github/issues/BhavsarAesha/MERN-Project)
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
 
 **HomeVision** is an innovative web-based platform built with the **MERN stack** (MongoDB, Express.js, React.js, Node.js) to transform the home buying experience. It allows users to explore properties, book visits, download brochures, and directly contact sellers — all through an intuitive, user-friendly interface.
 
@@ -123,7 +120,7 @@ To build a secure, modern real estate platform with:
 
 ```bash
 # Clone the repository
-git clone https://github.com/BhavsarAesha/MERN-Project.git
+git clone 
 cd MERN-Project
 
 # Install dependencies for both frontend and backend
@@ -144,7 +141,7 @@ npm start       # for frontend
 
 ## 🤝 Connect
 
-Built with ❤️ by **Aesha Bhavsar**  
+Built with ❤️ by **Nikhil**  
 If you have any questions, feedback, or suggestions, feel free to reach to me.
 
 ---
