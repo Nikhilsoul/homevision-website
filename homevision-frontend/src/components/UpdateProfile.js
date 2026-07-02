@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config';
 import './UpdateProfile.css'; 
 
 const UpdateProfile = () => {
@@ -18,7 +19,7 @@ const UpdateProfile = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:5000/api/dashboard', {
+        const response = await axios.get(`${API_BASE_URL}/api/dashboard`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(response.data.user);
@@ -70,7 +71,7 @@ const UpdateProfile = () => {
     
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put('http://localhost:5000/api/update-profile', user, {
+      const response = await axios.put(`${API_BASE_URL}/api/update-profile`, user, {
         headers: { Authorization: `Bearer ${token}` },
       });
   

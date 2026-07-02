@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config';
 import './CreateProperty.css';
 
 const CreateProperty = () => {
@@ -78,7 +79,7 @@ const CreateProperty = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/properties', formData, {
+      await axios.post(`${API_BASE_URL}/api/properties`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

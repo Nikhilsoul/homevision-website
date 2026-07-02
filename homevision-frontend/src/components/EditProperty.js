@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import API_BASE_URL from '../config';
 import './EditProperty.css'; // Import the CSS file
 
 const EditProperty = () => {
@@ -30,7 +31,7 @@ const EditProperty = () => {
     const fetchProperty = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/api/properties/${id}`, {
+        const response = await axios.get(`${API_BASE_URL}/api/properties/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setFormData(response.data);
@@ -89,7 +90,7 @@ const EditProperty = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/properties/${id}`, formData, {
+      await axios.put(`${API_BASE_URL}/api/properties/${id}`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       navigate('/admin');

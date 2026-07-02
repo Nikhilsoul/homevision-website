@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config';
 import './ResetPassword.css';
 
 const ResetPassword = () => {
@@ -33,7 +34,7 @@ const ResetPassword = () => {
     console.log('Token:', token); // Log the token to verify it
 
     try {
-      const response = await axios.post('http://localhost:5000/api/reset-password', { token, newPassword });
+      const response = await axios.post(`${API_BASE_URL}/api/reset-password`, { token, newPassword });
       setSuccess(response.data.message);
       setTimeout(() => navigate('/login'), 2000); // Redirect after 2 seconds
     } catch (error) {

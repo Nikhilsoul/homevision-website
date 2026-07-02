@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config';
 import './admindashboard.css';
 
 const AdminDashboard = () => {
@@ -15,7 +16,7 @@ const AdminDashboard = () => {
           navigate('/');
           return;
         }
-        const response = await axios.get('http://localhost:5000/api/properties', {
+        const response = await axios.get(`${API_BASE_URL}/api/properties`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProperties(response.data);
@@ -30,7 +31,7 @@ const AdminDashboard = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/properties/${id}`, {
+      await axios.delete(`${API_BASE_URL}/api/properties/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProperties(properties.filter((property) => property._id !== id));

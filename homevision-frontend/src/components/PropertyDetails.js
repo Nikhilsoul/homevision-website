@@ -5,6 +5,7 @@ import ImageGallery from 'react-image-gallery';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet'; 
 import ContactOwnerForm from './ContactOwnerForm'; 
+import API_BASE_URL from '../config';
 import './PropertyDetails.css';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import 'leaflet/dist/leaflet.css';
@@ -26,7 +27,7 @@ const PropertyDetails = () => {
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/properties/${id}`);
+        const response = await axios.get(`${API_BASE_URL}/api/properties/${id}`);
         const propertyData = response.data;
         setProperty(propertyData);
 
@@ -66,8 +67,8 @@ const PropertyDetails = () => {
   const renderGallery = () => {
     if (property && property.images && property.images.length > 0) {
       const images = property.images.map((image) => ({
-        original: `http://localhost:5000${image}`,
-        thumbnail: `http://localhost:5000${image}`,
+        original: `${API_BASE_URL}${image}`,
+        thumbnail: `${API_BASE_URL}${image}`,
       }));
       return <ImageGallery items={images} showThumbnails={true} />;
     }
@@ -76,7 +77,7 @@ const PropertyDetails = () => {
 
   const downloadBrochure = () => {
     axios({
-      url: `http://localhost:5000/api/properties/${id}/brochure`, // Use template literal here
+      url: `${API_BASE_URL}/api/properties/${id}/brochure`, // Use template literal here
       method: 'GET',
       responseType: 'blob', // Important for file download
     })

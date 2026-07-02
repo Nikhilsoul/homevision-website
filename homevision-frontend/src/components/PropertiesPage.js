@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PropertyCard from './PropertyCard';
+import API_BASE_URL from '../config';
 import './PropertiesPage.css';
 import videoSrc from './images/vd.mp4';
 
@@ -12,7 +13,7 @@ const PropertiesPage = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/properties');
+        const response = await axios.get(`${API_BASE_URL}/api/properties`);
         setProperties(response.data);
         setFilteredProperties(response.data);
       } catch (error) {

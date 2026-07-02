@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import './Home.css';
 import axios from 'axios';
+import API_BASE_URL from '../config';
 import logo from './images/home vision1.png';
 import about1 from './images/hlogo.webp'
 
@@ -18,7 +19,7 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/contact', formData);
+      const response = await axios.post(`${API_BASE_URL}/api/contact`, formData);
       if (response.status === 200) {
         alert('Message sent successfully!');
         setFormData({ name: '', email: '',subject: '', message: '' }); // Clear the form

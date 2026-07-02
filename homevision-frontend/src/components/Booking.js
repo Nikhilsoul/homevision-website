@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
+import API_BASE_URL from '../config';
 import './Booking.css';
 
 function Booking() {
@@ -45,12 +46,12 @@ function Booking() {
     setIsLoading(true);
 
     try {
-      const paymentResponse = await axios.post('http://localhost:5000/booking/payment', {
+      const paymentResponse = await axios.post(`${API_BASE_URL}/booking/payment`, {
         amount: 100000, // Fixed deposit amount
       });
 
       if (paymentResponse.status === 200) {
-        const confirmationResponse = await axios.post('http://localhost:5000/booking/confirmation', {
+        const confirmationResponse = await axios.post(`${API_BASE_URL}/booking/confirmation`, {
           email,
           bookingDetails: 'Booking details here...',
         });

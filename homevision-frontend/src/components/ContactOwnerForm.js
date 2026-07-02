@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import API_BASE_URL from '../config';
 import './ContactOwnerForm.css'; 
 
 const ContactOwnerForm = ({ property, onClose }) => {
@@ -11,7 +12,7 @@ const ContactOwnerForm = ({ property, onClose }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/contact-owner', {
+      const response = await axios.post(`${API_BASE_URL}/api/contact-owner`, {
         name,
         email,
         message,

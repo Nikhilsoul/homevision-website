@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import API_BASE_URL from '../config';
 import './Dashboard.css'; 
 import logo from './images/home vision1.png';
 import about1 from './images/hlogo.webp';
@@ -20,7 +21,7 @@ const Dashboard = () => {
           window.location.href = '/';
           return;
         }
-        const response = await axios.get('http://localhost:5000/api/dashboard', {
+        const response = await axios.get(`${API_BASE_URL}/api/dashboard`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(response.data.user);
@@ -53,7 +54,7 @@ const Dashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/contact', formData);
+      const response = await axios.post(`${API_BASE_URL}/api/contact`, formData);
       if (response.status === 200) {
         alert('Message sent successfully!');
         setFormData({ name: '', email: '',subject: '', message: '' }); // Clear the form

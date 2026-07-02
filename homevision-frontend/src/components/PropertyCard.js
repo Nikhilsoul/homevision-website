@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config';
 import './PropertyCard.css';
 
 const PropertyCard = ({ property }) => {
@@ -16,7 +17,7 @@ const PropertyCard = ({ property }) => {
         <div className="image-container">
           <img 
           //src={property.images[0]} 
-          src={`http://localhost:5000${property.images[0]}`}
+          src={`${API_BASE_URL}${property.images[0]}`}
           alt={property.name} className="property-image" />
           <div className="image-overlay">
             <span className="image-count">{property.images.length} photos</span>
