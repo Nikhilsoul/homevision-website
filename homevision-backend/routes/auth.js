@@ -4,6 +4,7 @@ const User = require('../models/User');
 
 const { forgotPassword } = require('../controllers/authController');
 const router = express.Router();
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
 
 // Forgot password route
@@ -26,7 +27,7 @@ router.post('/signup', async (req, res) => {
     await user.save();
 
     // Generate a token
-    const token = jwt.sign({ id: user._id }, 'secret', { expiresIn: '1h' });
+    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
 
     // Send the token to the client
     res.status(201).json({ token, message: 'User created successfully' });
@@ -57,7 +58,7 @@ router.post('/login', async (req, res) => {
     // console.log('User Found:', user); // Log user details
     // console.log('Password Match:', isMatch); // Log password match result
 
-    const token = jwt.sign({ id: user._id }, 'secret', { expiresIn: '1h' });
+    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
     res.status(200).json({ token });
   } catch (error) {
     console.error('Login Error:', error);

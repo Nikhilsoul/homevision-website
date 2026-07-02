@@ -20,7 +20,8 @@ exports.forgotPassword = async (req, res) => {
     await user.save();
 
     // Create a reset password link with the token as a query parameter
-    const resetPasswordLink = `http://localhost:3000/reset-password?token=${resetToken}`;
+    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+    const resetPasswordLink = `${frontendUrl}/reset-password?token=${resetToken}`;
 
     // Configure Nodemailer using environment variables
     const transporter = nodemailer.createTransport({

@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const authMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
 // Update profile route
 router.put('/update-profile', authMiddleware, async (req, res) => {
@@ -27,7 +28,7 @@ router.put('/update-profile', authMiddleware, async (req, res) => {
     await user.save();
 
     // Generate a new token if the email has changed
-    const token = jwt.sign({ id: user._id }, 'secret', { expiresIn: '1h' });
+    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
 
     res.status(200).json({ message: 'Profile updated successfully', token });
   } catch (error) {

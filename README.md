@@ -44,9 +44,9 @@ Traditional real estate platforms often lack real-time booking, direct communica
 
 ### Problem Definition
 Most platforms are either too complex or don’t offer the features needed for a smooth transaction process.
-
+n real estate pla
 ### Objective
-To build a secure, modern real estate platform with:
+To build a secure, modertform with:
 - Robust property management
 - User & Admin authentication
 - Direct booking and contact features
