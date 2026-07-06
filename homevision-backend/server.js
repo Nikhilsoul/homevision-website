@@ -23,7 +23,7 @@ app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
 mongoose.connect(MONGODB_URI)
-  .then(() => console.log('MongoDB Connected'))
+  .then(() => console.log('MongoDB Connected successfully'))
   .catch(err => console.log('DB Error:', err));
 
 
