@@ -15,7 +15,7 @@ require('dotenv').config();  // Ensure .env variables are loaded
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/homevision';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://ChandraMohan:Luckybisht%40%24123@cluster0.gino0o0.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=Cluster0';
 
 app.use(cors());
 app.use(express.json());  
