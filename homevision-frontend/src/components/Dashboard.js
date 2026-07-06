@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import API_BASE_URL from '../config';
 import './Dashboard.css'; 
 import logo from './images/home vision1.png';
@@ -11,7 +11,7 @@ const Dashboard = () => {
   const [user, setUser] = useState(null);
   const [dropdownVisible, setDropdownVisible] = useState(false); 
   const [formData, setFormData] = useState({ name: '', email: '',subject: '', message: '' });
-  const navigate = useNavigate();
+  
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -88,9 +88,9 @@ const Dashboard = () => {
                   <Link to="/update-profile">
                     <FaUserEdit className="dropdown-icon" /> Update 
                   </Link>
-                  <a href="#" onClick={handleLogout}>
+                  <button type="button" className="logout-button" onClick={handleLogout}>
                     <FaSignOutAlt className="dropdown-icon" /> Logout
-                  </a>
+                  </button>
                 </div>
               )}
             </div>
